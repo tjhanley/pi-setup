@@ -103,17 +103,25 @@ install_ghostty() {
     return
   fi
 
-  # Add the third-party Debian repo for Ghostty
-  sudo apt install -y gpg
-  curl -fsSL https://debian.griffo.io/signing-key.gpg \
-    | sudo gpg --dearmor -o /usr/share/keyrings/ghostty-keyring.gpg
-  echo "deb [signed-by=/usr/share/keyrings/ghostty-keyring.gpg] https://debian.griffo.io/ trixie main" \
-    | sudo tee /etc/apt/sources.list.d/ghostty.list > /dev/null
-  sudo apt update
-  sudo apt install -y ghostty
+  # Install from mkasberg/ghostty-ubuntu arm64 trixie .deb
+  local tmp
+  tmp="$(mktemp -d)"
+  local deb_url
+  deb_url="$(curl -fsSL https://api.github.com/repos/mkasberg/ghostty-ubuntu/releases/latest \
+    | jq -r '.assets[] | select(.name | test("arm64_trixie\\.deb$")) | .browser_download_url')"
+
+  if [[ -z "$deb_url" ]]; then
+    warn "Could not find ghostty arm64 trixie .deb in latest release"
+    rm -rf "$tmp"
+    return
+  fi
+
+  curl -fsSL -o "$tmp/ghostty.deb" "$deb_url"
+  sudo dpkg -i "$tmp/ghostty.deb" || sudo apt install -fy
+  rm -rf "$tmp"
 
   # Set Ghostty as the default terminal emulator
-  if command -v update-alternatives >/dev/null 2>&1; then
+  if command -v update-alternatives >/dev/null 2>&1 && [[ -x /usr/bin/ghostty ]]; then
     sudo update-alternatives --set x-terminal-emulator /usr/bin/ghostty
     ok "Ghostty set as default terminal"
   fi
@@ -188,6 +196,7 @@ stow_dotfiles() {
   backup_path "$HOME/.config/nvim"
   backup_path "$HOME/.config/starship.toml"
   backup_path "$HOME/.config/eza"
+  backup_path "$HOME/.claude/settings.json"
   backup_path "$HOME/.config/ghostty"
   backup_path "$HOME/.config/zellij"
 
@@ -201,6 +210,7 @@ stow_dotfiles() {
   move_conflict_target ".config/lazygit/config.yml"
   move_conflict_target ".config/starship.toml"
   move_conflict_target ".config/eza/theme.yml"
+  move_conflict_target ".claude/settings.json"
   move_conflict_target ".config/ghostty/config"
   move_conflict_target ".config/zellij/config.kdl"
 
@@ -454,7 +464,7 @@ set_default_shell() {
     return
   fi
 
-  chsh -s "$zsh_path"
+  sudo chsh -s "$zsh_path" "$USER"
   ok "Default shell set to $zsh_path (takes effect on next login)"
 }
 

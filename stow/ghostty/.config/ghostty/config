@@ -1,0 +1,13 @@
+# Ghostty configuration
+font-family = "BlexMono Nerd Font"
+font-size = 14
+
+window-padding-x = 10
+window-padding-y = 10
+theme = "Catppuccin Mocha"
+
+# Vim-like movement helpers in terminal apps/shells
+keybind = alt+h=esc:b
+keybind = alt+l=esc:f
+keybind = alt+j=csi:B
+keybind = alt+k=csi:A

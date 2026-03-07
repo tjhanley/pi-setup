@@ -204,6 +204,16 @@ stow_dotfiles() {
   fi
 
   # nvim is stowed separately after LazyVim install
+  if ! need_cmd stow; then
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      printf '\033[33mdry-run:\033[0m stow all packages (stow not yet installed)\n'
+      ok "Dotfiles stowed"
+      return
+    fi
+    warn "stow not found; cannot stow dotfiles"
+    return
+  fi
+
   local -a stow_args=(--target="$HOME" --restow)
   [[ "$DRY_RUN" -eq 1 ]] && stow_args+=(-n)
 
@@ -245,6 +255,16 @@ stow_nvim_plugins() {
   fi
 
   move_conflict_target ".config/nvim/lua/config/keymaps.lua"
+
+  if ! need_cmd stow; then
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      printf '\033[33mdry-run:\033[0m stow nvim package (stow not yet installed)\n'
+      ok "Neovim plugins stowed"
+      return
+    fi
+    warn "stow not found; cannot stow nvim"
+    return
+  fi
 
   if [[ "$DRY_RUN" -eq 1 ]]; then
     if ! (cd "$STOW_DIR" && stow --target="$HOME" --restow -n nvim); then
@@ -411,9 +431,13 @@ set_default_shell() {
   fi
 
   local zsh_path
-  zsh_path="$(command -v zsh)"
+  zsh_path="$(command -v zsh || true)"
 
   if [[ -z "$zsh_path" ]]; then
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      printf '\033[33mdry-run:\033[0m chsh -s /usr/bin/zsh (zsh not yet installed)\n'
+      return
+    fi
     warn "zsh not found; skipping shell change"
     return
   fi

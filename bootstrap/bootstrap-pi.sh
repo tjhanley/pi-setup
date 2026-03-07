@@ -90,43 +90,29 @@ install_apt_packages() {
   ok "apt packages installed"
 }
 
-install_ghostty() {
-  log "Installing Ghostty terminal"
+install_kitty() {
+  log "Installing Kitty terminal"
 
-  if need_cmd ghostty; then
-    ok "Ghostty already installed"
-    return
+  if need_cmd kitty; then
+    ok "Kitty already installed"
+  else
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      printf '\033[33mdry-run:\033[0m sudo apt install kitty\n'
+    else
+      sudo apt install -y kitty
+      ok "Kitty installed"
+    fi
   fi
 
-  if [[ "$DRY_RUN" -eq 1 ]]; then
-    printf '\033[33mdry-run:\033[0m add debian.griffo.io repo and install ghostty\n'
-    return
+  # Set Kitty as the default terminal emulator
+  if command -v update-alternatives >/dev/null 2>&1 && [[ -x /usr/bin/kitty ]]; then
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      printf '\033[33mdry-run:\033[0m set kitty as default terminal\n'
+    else
+      sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
+      ok "Kitty set as default terminal"
+    fi
   fi
-
-  # Install from mkasberg/ghostty-ubuntu arm64 trixie .deb
-  local tmp
-  tmp="$(mktemp -d)"
-  local deb_url
-  deb_url="$(curl -fsSL https://api.github.com/repos/mkasberg/ghostty-ubuntu/releases/latest \
-    | jq -r '.assets[] | select(.name | test("arm64_trixie\\.deb$")) | .browser_download_url')"
-
-  if [[ -z "$deb_url" ]]; then
-    warn "Could not find ghostty arm64 trixie .deb in latest release"
-    rm -rf "$tmp"
-    return
-  fi
-
-  curl -fsSL -o "$tmp/ghostty.deb" "$deb_url"
-  sudo dpkg -i "$tmp/ghostty.deb" || sudo apt install -fy
-  rm -rf "$tmp"
-
-  # Set Ghostty as the default terminal emulator
-  if command -v update-alternatives >/dev/null 2>&1 && [[ -x /usr/bin/ghostty ]]; then
-    sudo update-alternatives --set x-terminal-emulator /usr/bin/ghostty
-    ok "Ghostty set as default terminal"
-  fi
-
-  ok "Ghostty installed"
 }
 
 install_zellij() {
@@ -197,7 +183,7 @@ stow_dotfiles() {
   backup_path "$HOME/.config/starship.toml"
   backup_path "$HOME/.config/eza"
   backup_path "$HOME/.claude/settings.json"
-  backup_path "$HOME/.config/ghostty"
+  backup_path "$HOME/.config/kitty"
   backup_path "$HOME/.config/zellij"
 
   log "Moving stow conflicts into backup"
@@ -211,7 +197,7 @@ stow_dotfiles() {
   move_conflict_target ".config/starship.toml"
   move_conflict_target ".config/eza/theme.yml"
   move_conflict_target ".claude/settings.json"
-  move_conflict_target ".config/ghostty/config"
+  move_conflict_target ".config/kitty/kitty.conf"
   move_conflict_target ".config/zellij/config.kdl"
 
   log "Stowing dotfiles"
@@ -511,7 +497,7 @@ main() {
   ok "Repo: $DOTFILES_DIR"
 
   install_apt_packages
-  install_ghostty
+  install_kitty
   install_zellij
   ensure_config_dir
 

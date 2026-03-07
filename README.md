@@ -19,9 +19,9 @@ Dry run (no changes):
 ## What it does
 
 1. Installs CLI tools via apt (zsh, neovim, starship, lazygit, ripgrep, fd, fzf, bat, eza, zoxide, git-delta, btop, fastfetch, etc.)
-2. Installs Ghostty terminal from debian.griffo.io repo
+2. Installs Kitty terminal from apt
 3. Installs Zellij from GitHub releases (aarch64 binary)
-4. Stows dotfiles (zsh, git, starship, bat, eza, lazygit, ripgrep, ghostty, zellij, nvim, claude)
+4. Stows dotfiles (zsh, git, starship, bat, eza, lazygit, ripgrep, kitty, zellij, nvim, claude)
 5. Installs LazyVim starter config
 6. Sets zsh as default shell
 7. Configures Claude Code settings
@@ -33,7 +33,7 @@ stow/
   bat/          bat config
   claude/       Claude Code CLAUDE.md, settings, skills
   eza/          eza theme
-  ghostty/      Ghostty terminal config
+  kitty/        Kitty terminal config + Catppuccin theme
   git/          .gitconfig, .gitignore
   lazygit/      lazygit config
   nvim/         LazyVim plugin overrides

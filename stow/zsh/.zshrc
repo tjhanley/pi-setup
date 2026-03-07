@@ -54,10 +54,10 @@ path_prepend_unique "$HOME/.local/bin"
 export ZELLIJ_CONFIG_DIR="$HOME/.config/zellij"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-# Auto-start zellij for interactive Ghostty shells.
+# Auto-start zellij for interactive kitty shells.
 # Opt out per-shell with: NO_AUTO_ZELLIJ=1 zsh
 if command -v zellij >/dev/null 2>&1; then
-  if [[ $- == *i* ]] && [[ -t 1 ]] && [[ "${TERM_PROGRAM:-}" == "ghostty" ]] && [[ -z "${ZELLIJ:-}" ]] && [[ -z "${TMUX:-}" ]] && [[ "${NO_AUTO_ZELLIJ:-0}" != "1" ]]; then
+  if [[ $- == *i* ]] && [[ -t 1 ]] && [[ "${TERM:-}" == "xterm-kitty" ]] && [[ -z "${ZELLIJ:-}" ]] && [[ -z "${TMUX:-}" ]] && [[ "${NO_AUTO_ZELLIJ:-0}" != "1" ]]; then
     exec zellij
   fi
 fi

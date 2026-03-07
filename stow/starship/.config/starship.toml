@@ -4,7 +4,7 @@ command_timeout = 1500
 palette = "catppuccin_mocha"
 
 format = """
-[](sapphire)$os$directory[](fg:sapphire bg:blue)$git_branch$git_status[](fg:blue bg:mauve)$docker_context[](fg:mauve bg:pink)$cmd_duration[](fg:pink)$line_break$character
+[](sapphire)$os$directory[](fg:sapphire bg:blue)$git_branch$git_status[](fg:blue bg:mauve)$docker_context[](fg:mauve bg:pink)$cmd_duration[](fg:pink)$line_break$character
 """
 
 [palettes.catppuccin_mocha]
@@ -40,20 +40,20 @@ disabled = false
 format = "[$symbol](bg:sapphire fg:crust bold)"
 
 [os.symbols]
-Linux = " "
-Raspbian = " "
-Debian = " "
+Linux = " "
+Raspbian = " "
+Debian = " "
 
 [directory]
 style = "bg:sapphire fg:crust bold"
-read_only = " "
+read_only = " "
 read_only_style = "bg:sapphire fg:red bold"
 truncation_length = 4
 truncate_to_repo = true
 format = "[ $path]($style)[$read_only]($read_only_style)"
 
 [git_branch]
-symbol = " "
+symbol = " "
 style = "bg:blue fg:crust bold"
 format = "[ $symbol$branch]($style)"
 
@@ -73,7 +73,7 @@ renamed = "»${count}"
 deleted = "x${count}"
 
 [docker_context]
-symbol = " "
+symbol = " "
 style = "bg:mauve fg:crust bold"
 format = "[ $symbol$context]($style)"
 only_with_files = true

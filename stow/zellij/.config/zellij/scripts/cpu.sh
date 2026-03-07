@@ -1,3 +1,3 @@
 #!/bin/sh
-cores=$(sysctl -n hw.ncpu)
-ps -A -o %cpu | awk -v c="$cores" 'NR>1{s+=$1}END{printf "%3d%%",s/c}'
+# Instant CPU usage from /proc/stat (averaged since boot; zjstatus polls every 5s)
+awk 'NR==1{printf "%3.0f%%", ($2+$4)*100/($2+$4+$5)}' /proc/stat

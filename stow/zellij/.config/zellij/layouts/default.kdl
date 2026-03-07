@@ -83,23 +83,23 @@ layout {
                 notification_show_interval "10"
 
                 // -- Commands (system stats) --
-                command_cpu_command    "/Users/tom/.config/zellij/scripts/cpu.sh"
+                command_cpu_command    "bash -c $HOME/.config/zellij/scripts/cpu.sh"
                 command_cpu_format     "{stdout}"
                 command_cpu_interval   "5"
                 command_cpu_rendermode "dynamic"
 
-                command_mem_command    "/Users/tom/.config/zellij/scripts/mem.sh"
+                command_mem_command    "bash -c $HOME/.config/zellij/scripts/mem.sh"
                 command_mem_format     "{stdout}"
                 command_mem_interval   "10"
                 command_mem_rendermode "dynamic"
 
                 // -- Commands (battery) --
-                command_battery_icon_command    "/Users/tom/.config/zellij/scripts/battery.sh icon"
+                command_battery_icon_command    "bash -c $HOME/.config/zellij/scripts/battery.sh\\ icon"
                 command_battery_icon_format     "{stdout}"
                 command_battery_icon_interval   "30"
                 command_battery_icon_rendermode "dynamic"
 
-                command_battery_command    "/Users/tom/.config/zellij/scripts/battery.sh"
+                command_battery_command    "bash -c $HOME/.config/zellij/scripts/battery.sh"
                 command_battery_format     "{stdout}"
                 command_battery_interval   "30"
                 command_battery_rendermode "dynamic"

@@ -185,6 +185,7 @@ stow_dotfiles() {
   backup_path "$HOME/.claude/settings.json"
   backup_path "$HOME/.config/kitty"
   backup_path "$HOME/.config/zellij"
+  backup_path "$HOME/.config/labwc"
 
   log "Moving stow conflicts into backup"
   move_conflict_target ".zshrc"
@@ -199,6 +200,7 @@ stow_dotfiles() {
   move_conflict_target ".claude/settings.json"
   move_conflict_target ".config/kitty/kitty.conf"
   move_conflict_target ".config/zellij/config.kdl"
+  move_conflict_target ".config/labwc/rc.xml"
 
   log "Stowing dotfiles"
   if [[ ! -d "$STOW_DIR" ]]; then

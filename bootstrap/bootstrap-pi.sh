@@ -111,6 +111,13 @@ install_ghostty() {
     | sudo tee /etc/apt/sources.list.d/ghostty.list > /dev/null
   sudo apt update
   sudo apt install -y ghostty
+
+  # Set Ghostty as the default terminal emulator
+  if command -v update-alternatives >/dev/null 2>&1; then
+    sudo update-alternatives --set x-terminal-emulator /usr/bin/ghostty
+    ok "Ghostty set as default terminal"
+  fi
+
   ok "Ghostty installed"
 }
 

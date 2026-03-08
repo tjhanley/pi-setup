@@ -53,34 +53,26 @@
       <action name="UnMaximize"/>
     </keybind>
 
-    <!-- Thirds: Super+1/2/3 -->
-    <keybind key="W-1">
+    <!-- Thirds: Ctrl+Alt+1/2/3 -->
+    <keybind key="C-A-1">
       <action name="SnapToRegion" region="third-left"/>
     </keybind>
-    <keybind key="W-2">
+    <keybind key="C-A-2">
       <action name="SnapToRegion" region="third-center"/>
     </keybind>
-    <keybind key="W-3">
+    <keybind key="C-A-3">
       <action name="SnapToRegion" region="third-right"/>
     </keybind>
 
-    <!-- Two-thirds combos: Super+4/5/6 -->
-    <keybind key="W-4">
+    <!-- Two-thirds combos: Ctrl+Alt+4/5/6 -->
+    <keybind key="C-A-4">
       <action name="SnapToRegion" region="twothirds-left"/>
     </keybind>
-    <keybind key="W-5">
+    <keybind key="C-A-5">
       <action name="SnapToRegion" region="twothirds-right"/>
     </keybind>
-    <keybind key="W-6">
+    <keybind key="C-A-6">
       <action name="SnapToRegion" region="twothirds-center"/>
-    </keybind>
-
-    <!-- Maximize: Super+Up / Restore: Super+Down -->
-    <keybind key="W-Up">
-      <action name="Maximize"/>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="UnMaximize"/>
     </keybind>
 
     <!-- Pi OS system keys -->
@@ -99,7 +91,7 @@
         <command>wfpanelctl volumepulse mute</command>
       </action>
     </keybind>
-    <keybind key="Super_L" onRelease="yes">
+    <keybind key="A-F1" onRelease="yes">
       <action name="Execute">
         <command>wfpanelctl smenu menu</command>
       </action>
@@ -167,12 +159,6 @@
       </mousebind>
     </context>
     <context name="All">
-      <mousebind direction="W-Up" action="Scroll">
-        <action name="ZoomIn"/>
-      </mousebind>
-      <mousebind direction="W-Down" action="Scroll">
-        <action name="ZoomOut"/>
-      </mousebind>
      </context>
   </mouse>
 
@@ -191,6 +177,12 @@
     <region name="twothirds-right" x="33%" y="0%" width="67%" height="100%"/>
     <region name="twothirds-center" x="17%" y="0%" width="66%" height="100%"/>
   </regions>
+
+  <libinput>
+    <device category="default">
+      <naturalScroll>yes</naturalScroll>
+    </device>
+  </libinput>
 
   <snapping>
     <range>0</range>

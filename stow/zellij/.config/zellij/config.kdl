@@ -1,4 +1,12 @@
 keybinds clear-defaults=true {
+    shared_except "locked" {
+        bind "Alt Shift l" {
+            Run "bash" "-c" "$HOME/.config/zellij/scripts/launcher.sh" {
+                close_on_exit true
+                floating true
+            }
+        }
+    }
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
     }

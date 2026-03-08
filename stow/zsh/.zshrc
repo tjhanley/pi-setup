@@ -188,3 +188,6 @@ if [[ -f "$HOME/.secrets" ]]; then
   source "$HOME/.secrets"
 fi
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# OpenClaw Completion
+source "/home/tom/.openclaw/completions/openclaw.zsh"

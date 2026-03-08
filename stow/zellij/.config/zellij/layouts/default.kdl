@@ -38,7 +38,7 @@ layout {
                 // -- Layout --
                 format_left   "#[bg=$surface0,fg=$sapphire]#[bg=$sapphire,fg=$crust,bold] {session} #[bg=$surface0,fg=$sapphire] {mode}#[bg=$surface0] {tabs}"
                 format_center "{notifications}"
-                format_right  "#[bg=$surface0,fg=$green]#[bg=$green,fg=$crust] #[bg=$surface1,fg=$green,bold] {command_cpu}#[bg=$surface0,fg=$surface1]#[bg=$surface0] #[bg=$surface0,fg=$teal]#[bg=$teal,fg=$crust]󰘚 #[bg=$surface1,fg=$teal,bold] {command_mem}#[bg=$surface0,fg=$surface1]#[bg=$surface0] #[bg=$surface0,fg=$flamingo]#[bg=$flamingo,fg=$crust] #[bg=$surface1,fg=$flamingo,bold] {command_temp}#[bg=$surface0,fg=$surface1]#[bg=$surface0] #[bg=$surface0,fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[bg=$surface0,fg=$surface1]"
+                format_right  "#[bg=$surface0,fg=$green]#[bg=$green,fg=$crust] #[bg=$surface1,fg=$green,bold] {command_cpu}#[bg=$surface0,fg=$surface1]#[bg=$surface0] #[bg=$surface0,fg=$flamingo]#[bg=$flamingo,fg=$crust] #[bg=$surface1,fg=$flamingo,bold] {command_temp}#[bg=$surface0,fg=$surface1]"
                 format_space  "#[bg=$surface0]"
                 format_hide_on_overlength "true"
                 format_precedence "lrc"
@@ -102,7 +102,7 @@ layout {
 
                 // -- Datetime --
                 datetime          "{format}"
-                datetime_format   "%Y-%m-%d 󰅐 %H:%M"
+                datetime_format   "%H:%M"
                 datetime_timezone "America/Los_Angeles"
             }
         }

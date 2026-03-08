@@ -134,6 +134,9 @@
         <command>grim</command>
       </action>
     </keybind>
+    <keybind key="F11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
     <keybind key="C-A-m">
       <action name="ToggleMagnify"/>
     </keybind>

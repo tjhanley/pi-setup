@@ -2,24 +2,24 @@
 <openbox_config xmlns="http://openbox.org/3.4/rc">
 
   <theme>
-    <name>PiXtrix</name>
+    <name>PiXonyx</name>
     <cornerRadius>0</cornerRadius>
     <keepBorder>yes</keepBorder>
     <font place="ActiveWindow">
       <name>Nunito Sans</name>
-      <size>12</size>
+      <size>8</size>
       <weight>Light</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
       <name>Nunito Sans</name>
-      <size>12</size>
+      <size>8</size>
       <weight>Light</weight>
       <slant>Normal</slant>
     </font>
     <font place="OnScreenDisplay">
       <name>Nunito Sans</name>
-      <size>12</size>
+      <size>8</size>
       <weight>Light</weight>
       <slant>Normal</slant>
     </font>
@@ -31,56 +31,56 @@
 
   <keyboard>
     <numlock>off</numlock>
-    <default />
+    <default/>
 
     <!-- Pi OS defaults: clear Alt+Arrow -->
-    <keybind key="A-Left" />
-    <keybind key="A-Right" />
-    <keybind key="A-Up" />
-    <keybind key="A-Down" />
+    <keybind key="A-Left"/>
+    <keybind key="A-Right"/>
+    <keybind key="A-Up"/>
+    <keybind key="A-Down"/>
 
     <!-- Halves (Pi OS default) -->
     <keybind key="C-A-Left">
-      <action name="SnapToEdge" direction="left"></action>
+      <action name="SnapToEdge" direction="left"/>
     </keybind>
     <keybind key="C-A-Right">
-      <action name="SnapToEdge" direction="right"></action>
+      <action name="SnapToEdge" direction="right"/>
     </keybind>
     <keybind key="C-A-Up">
-      <action name="Maximize"></action>
+      <action name="Maximize"/>
     </keybind>
     <keybind key="C-A-Down">
-      <action name="UnMaximize"></action>
+      <action name="UnMaximize"/>
     </keybind>
 
     <!-- Thirds: Super+1/2/3 -->
     <keybind key="W-1">
-      <action name="SnapToRegion" region="third-left" />
+      <action name="SnapToRegion" region="third-left"/>
     </keybind>
     <keybind key="W-2">
-      <action name="SnapToRegion" region="third-center" />
+      <action name="SnapToRegion" region="third-center"/>
     </keybind>
     <keybind key="W-3">
-      <action name="SnapToRegion" region="third-right" />
+      <action name="SnapToRegion" region="third-right"/>
     </keybind>
 
     <!-- Two-thirds combos: Super+4/5/6 -->
     <keybind key="W-4">
-      <action name="SnapToRegion" region="twothirds-left" />
+      <action name="SnapToRegion" region="twothirds-left"/>
     </keybind>
     <keybind key="W-5">
-      <action name="SnapToRegion" region="twothirds-right" />
+      <action name="SnapToRegion" region="twothirds-right"/>
     </keybind>
     <keybind key="W-6">
-      <action name="SnapToRegion" region="twothirds-center" />
+      <action name="SnapToRegion" region="twothirds-center"/>
     </keybind>
 
     <!-- Maximize: Super+Up / Restore: Super+Down -->
     <keybind key="W-Up">
-      <action name="Maximize" />
+      <action name="Maximize"/>
     </keybind>
     <keybind key="W-Down">
-      <action name="UnMaximize" />
+      <action name="UnMaximize"/>
     </keybind>
 
     <!-- Pi OS system keys -->
@@ -140,7 +140,7 @@
       </action>
     </keybind>
     <keybind key="C-A-m">
-      <action name="ToggleMagnify" />
+      <action name="ToggleMagnify"/>
     </keybind>
     <keybind key="C-A-l">
       <action name="Execute">
@@ -155,7 +155,7 @@
   </keyboard>
 
   <mouse>
-    <default />
+    <default/>
     <context name="Title">
       <mousebind button="Right" action="Click">
       </mousebind>
@@ -168,28 +168,28 @@
     </context>
     <context name="All">
       <mousebind direction="W-Up" action="Scroll">
-        <action name="ZoomIn" />
+        <action name="ZoomIn"/>
       </mousebind>
       <mousebind direction="W-Down" action="Scroll">
-        <action name="ZoomOut" />
+        <action name="ZoomOut"/>
       </mousebind>
      </context>
   </mouse>
 
   <windowRules>
-    <windowRule identifier="Kodi" serverDecoration="yes" />
+    <windowRule identifier="Kodi" serverDecoration="yes"/>
   </windowRules>
 
   <!-- Snap regions: thirds for 49" ultrawide (3840x1080) -->
   <regions>
     <!-- Single thirds -->
-    <region name="third-left"      x="0%"      y="0%" width="33%"  height="100%" />
-    <region name="third-center"    x="33%"     y="0%" width="34%"  height="100%" />
-    <region name="third-right"     x="67%"     y="0%" width="33%"  height="100%" />
+    <region name="third-left" x="0%" y="0%" width="33%" height="100%"/>
+    <region name="third-center" x="33%" y="0%" width="34%" height="100%"/>
+    <region name="third-right" x="67%" y="0%" width="33%" height="100%"/>
     <!-- Two-thirds combos -->
-    <region name="twothirds-left"   x="0%"     y="0%" width="67%"  height="100%" />
-    <region name="twothirds-right"  x="33%"    y="0%" width="67%"  height="100%" />
-    <region name="twothirds-center" x="17%"    y="0%" width="66%"  height="100%" />
+    <region name="twothirds-left" x="0%" y="0%" width="67%" height="100%"/>
+    <region name="twothirds-right" x="33%" y="0%" width="67%" height="100%"/>
+    <region name="twothirds-center" x="17%" y="0%" width="66%" height="100%"/>
   </regions>
 
   <snapping>
@@ -207,22 +207,22 @@
 
   <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
     <fields>
-      <field content="icon" width="5%" />
-      <field content="title" width="95%" />
+      <field content="icon" width="5%"/>
+      <field content="title" width="95%"/>
     </fields>
   </windowSwitcher>
 
-  <touch deviceName="10-0038 generic ft5x06 (79)" mapToOutput="DSI-1" mouseEmulation="yes" />
-  <touch deviceName="11-0038 generic ft5x06 (79)" mapToOutput="DSI-2" mouseEmulation="yes" />
-  <touch deviceName="6-0038 generic ft5x06 (79)" mapToOutput="DSI-1" mouseEmulation="yes" />
-  <touch deviceName="4-0038 generic ft5x06 (79)" mapToOutput="DSI-2" mouseEmulation="yes" />
-  <touch deviceName="10-0038 generic ft5x06 (00)" mapToOutput="DSI-1" mouseEmulation="yes" />
-  <touch deviceName="11-0038 generic ft5x06 (00)" mapToOutput="DSI-2" mouseEmulation="yes" />
-  <touch deviceName="6-0038 generic ft5x06 (00)" mapToOutput="DSI-1" mouseEmulation="yes" />
-  <touch deviceName="4-0038 generic ft5x06 (00)" mapToOutput="DSI-2" mouseEmulation="yes" />
-  <touch deviceName="10-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-1" mouseEmulation="yes" />
-  <touch deviceName="11-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-2" mouseEmulation="yes" />
-  <touch deviceName="6-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-1" mouseEmulation="yes" />
-  <touch deviceName="4-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-2" mouseEmulation="yes" />
+  <touch deviceName="10-0038 generic ft5x06 (79)" mapToOutput="DSI-1" mouseEmulation="yes"/>
+  <touch deviceName="11-0038 generic ft5x06 (79)" mapToOutput="DSI-2" mouseEmulation="yes"/>
+  <touch deviceName="6-0038 generic ft5x06 (79)" mapToOutput="DSI-1" mouseEmulation="yes"/>
+  <touch deviceName="4-0038 generic ft5x06 (79)" mapToOutput="DSI-2" mouseEmulation="yes"/>
+  <touch deviceName="10-0038 generic ft5x06 (00)" mapToOutput="DSI-1" mouseEmulation="yes"/>
+  <touch deviceName="11-0038 generic ft5x06 (00)" mapToOutput="DSI-2" mouseEmulation="yes"/>
+  <touch deviceName="6-0038 generic ft5x06 (00)" mapToOutput="DSI-1" mouseEmulation="yes"/>
+  <touch deviceName="4-0038 generic ft5x06 (00)" mapToOutput="DSI-2" mouseEmulation="yes"/>
+  <touch deviceName="10-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-1" mouseEmulation="yes"/>
+  <touch deviceName="11-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-2" mouseEmulation="yes"/>
+  <touch deviceName="6-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-1" mouseEmulation="yes"/>
+  <touch deviceName="4-005d Goodix Capacitive TouchScreen" mapToOutput="DSI-2" mouseEmulation="yes"/>
 
 </openbox_config>

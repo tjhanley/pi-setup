@@ -56,6 +56,24 @@ move_conflict_target() {
   ok "Moved conflict: $target -> $dest"
 }
 
+ensure_locale() {
+  log "Ensuring en_US.UTF-8 locale"
+
+  if locale -a 2>/dev/null | grep -q "en_US.utf8"; then
+    ok "en_US.UTF-8 already generated"
+    return
+  fi
+
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    printf '\033[33mdry-run:\033[0m generate en_US.UTF-8 locale\n'
+    return
+  fi
+
+  sudo sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+  sudo locale-gen
+  ok "en_US.UTF-8 locale generated"
+}
+
 install_apt_packages() {
   log "Installing packages via apt"
 
@@ -498,6 +516,7 @@ main() {
   log "Bootstrap starting"
   ok "Repo: $DOTFILES_DIR"
 
+  ensure_locale
   install_apt_packages
   install_kitty
   install_zellij

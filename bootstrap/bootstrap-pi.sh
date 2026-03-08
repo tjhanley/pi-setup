@@ -94,6 +94,7 @@ install_apt_packages() {
     btop
     wget
     fastfetch
+    fonts-noto-color-emoji
     zsh-autosuggestions
     zsh-syntax-highlighting
   )

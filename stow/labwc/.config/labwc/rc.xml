@@ -2,7 +2,7 @@
 <openbox_config xmlns="http://openbox.org/3.4/rc">
 
   <theme>
-    <name>PiXonyx</name>
+    <name>PiXtrix</name>
     <cornerRadius>0</cornerRadius>
     <keepBorder>yes</keepBorder>
     <font place="ActiveWindow">
@@ -31,6 +31,9 @@
 
   <keyboard>
     <numlock>off</numlock>
+    <xkb>
+      <options>ctrl:nocaps</options>
+    </xkb>
     <default/>
 
     <!-- Pi OS defaults: clear Alt+Arrow -->

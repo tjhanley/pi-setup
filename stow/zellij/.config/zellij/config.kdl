@@ -1,12 +1,4 @@
 keybinds clear-defaults=true {
-    shared_except "locked" {
-        bind "Alt Shift l" {
-            Run "bash" "-c" "$HOME/.config/zellij/scripts/launcher.sh" {
-                close_on_exit true
-                floating true
-            }
-        }
-    }
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
     }
@@ -289,23 +281,8 @@ web_client {
  
 // Choose the theme that is specified in the themes section.
 // Default: default
+//
 theme "catppuccin-mocha"
-
-themes {
-    catppuccin-mocha {
-        bg "#585b70"
-        fg "#cdd6f4"
-        red "#f38ba8"
-        green "#a6e3a1"
-        blue "#89b4fa"
-        yellow "#f9e2af"
-        magenta "#f5c2e7"
-        orange "#fab387"
-        cyan "#94e2d5"
-        black "#1e1e2e"
-        white "#cdd6f4"
-    }
-}
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -388,8 +365,8 @@ themes {
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 // 
-copy_command "wl-copy"
-
+// copy_command "pbcopy"
+ 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
 // Does not apply when using copy_command.
@@ -402,7 +379,7 @@ copy_command "wl-copy"
 // Enable automatic copying (and clearing) of selection when releasing mouse
 // Default: true
 // 
-copy_on_select true
+// copy_on_select true
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
@@ -553,3 +530,19 @@ copy_on_select true
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
+
+themes {
+    catppuccin-mocha {
+        fg "#cdd6f4"
+        bg "#1e1e2e"
+        black "#45475a"
+        red "#f38ba8"
+        green "#a6e3a1"
+        yellow "#f9e2af"
+        blue "#89b4fa"
+        magenta "#cba6f7"
+        cyan "#94e2d5"
+        white "#bac2de"
+        orange "#fab387"
+    }
+}

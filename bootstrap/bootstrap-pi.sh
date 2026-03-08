@@ -158,6 +158,32 @@ install_zellij() {
   ok "Zellij installed to ~/.local/bin/zellij"
 }
 
+install_ncspot() {
+  log "Installing ncspot (TUI Spotify client)"
+
+  if need_cmd ncspot; then
+    ok "ncspot already installed"
+    return
+  fi
+
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    printf '\033[33mdry-run:\033[0m download ncspot aarch64 binary to ~/.local/bin\n'
+    return
+  fi
+
+  mkdir -p "$HOME/.local/bin"
+  local tmp
+  tmp="$(mktemp -d)"
+  local version
+  version="$(curl -fsSL https://api.github.com/repos/hrkfdn/ncspot/releases/latest | jq -r '.tag_name')"
+  curl -fsSL -o "$tmp/ncspot.tar.gz" \
+    "https://github.com/hrkfdn/ncspot/releases/download/${version}/ncspot-${version}-linux-arm64.tar.gz"
+  tar -xzf "$tmp/ncspot.tar.gz" -C "$tmp"
+  install -m 755 "$tmp/ncspot" "$HOME/.local/bin/ncspot"
+  rm -rf "$tmp"
+  ok "ncspot installed to ~/.local/bin/ncspot"
+}
+
 install_zjstatus() {
   log "Installing zjstatus (Zellij status bar plugin)"
 
@@ -521,6 +547,7 @@ main() {
   install_apt_packages
   install_kitty
   install_zellij
+  install_ncspot
   ensure_config_dir
 
   stow_dotfiles

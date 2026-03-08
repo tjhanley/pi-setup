@@ -2,17 +2,12 @@
 set -euo pipefail
 
 commands=(
-  "🌋 basalt"
   "📊 btop"
   "🤖 claude"
   "🌳 claude --worktree"
-  "📦 codex"
-  "☸️  k9s"
-  "🐳 lazydocker"
   "🔀 lazygit"
-  "✏️  nvim"
-  "🏎️  sidecar"
-  "📁 yazi"
+  "💻 nvim"
+  "🦞 openclaw tui"
 )
 
 selected=$(printf '%s\n' "${commands[@]}" | fzf --prompt="🚀 Launch > " --reverse --border=rounded) || true

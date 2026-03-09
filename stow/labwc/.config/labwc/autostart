@@ -1,3 +1,7 @@
 gnome-keyring-daemon --start --components=secrets &
-swayidle -w timeout 600 'wlopm --off "*"' resume 'wlopm --on "*"' &
+swayidle -w \
+  timeout 300 'screensaver-clock &' \
+  resume 'pkill -f screensaver-clock; wlopm --on "*"' \
+  timeout 600 'pkill -f screensaver-clock; wlopm --off "*"' \
+  resume 'wlopm --on "*"' &
 kitty --start-as=fullscreen &

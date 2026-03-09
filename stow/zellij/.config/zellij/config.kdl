@@ -153,6 +153,7 @@ keybinds clear-defaults=true {
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt Shift k" { Clear; Write 12; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl q" { Quit; }
     }

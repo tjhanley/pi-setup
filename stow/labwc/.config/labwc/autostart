@@ -1,1 +1,3 @@
+gnome-keyring-daemon --start --components=secrets &
+swayidle -w timeout 600 'wlopm --off "*"' resume 'wlopm --on "*"' &
 kitty --start-as=fullscreen &
